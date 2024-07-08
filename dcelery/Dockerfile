@@ -6,11 +6,11 @@ ENV PYTHONDONTWRITEBYCODE = 1
 ENV PYTHONUNBUFFERED = 1
 
 RUN  pip install --upgrade pip
-COPY ../requirements.txt /usr/src/app/requirements.txt
+COPY ../requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY ./scripts/entrypoint.sh /usr/src/app/scripts/entrypoint.sh
+COPY ./scripts/entrypoint.sh .
 
-COPY . /usr/src/app/
+COPY . .
 
 ENTRYPOINT [ "/usr/src/app/scripts/entrypoint.sh" ]
